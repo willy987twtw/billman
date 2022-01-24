@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 ,initial-scale=1.0 ,user-scalable=0, maximum-scale=1"
+    />
+    <title>可可自動分帳</title>
+    <link rel="stylesheet" href="./src/sass/main.scss" />
+    <script type="module" defer src="src/js/controller.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <input type="checkbox" id="toggleGroupArea" class="toggleGroupArea" />
+      <input type="checkbox" id="toggleBalanceArea" />
+
+      <div class="group">
+        <label class="group__title">群組</label>
+        <button class="group__btn--close">x</button>
+        <div class="group-create">
+          <div class="group-create__btn">
+            <div class="group__items">
+              <div class="group__item--icon"><span>＋</span></div>
+              <div class="group__item--headline">新群組</div>
+              <div class="group__item--subhead">建立一個新群組</div>
+            </div>
+          </div>
+
+          <form class="group-create__form hidden">
+            <div class="group__items">
+              <div class="group__item--icon"><span>?</span></div>
+              <input
+                required
+                class="group__item--headline newGroupName"
+                placeholder="墾丁遊"
+                value=""
+              />
+              <div class="group__item--subhead">請輸入群組名稱</div>
+
+              <input class="group__item--submit" type="submit" value="送出" />
+            </div>
+          </form>
+        </div>
+
+        <div class="group-list"></div>
+      </div>
+
+      <!-- EVENT區塊 -->
+      <div class="event">
+        <div class="event__header">
+          <div class="event__title"><h1>可可自動分帳</h1></div>
+
+          <div class="event__btns">
+            <img
+              src="src/img/deleteAllInfo.png"
+              alt=""
+              class="event__btn--deleteAllInfo"
+            />
+
+            <img
+              src="src/img/usersMngt.png"
+              alt=""
+              class="event__btn--usersMngt"
+            />
+
+            <img
+              src="src/img/debtRelationship.png"
+              alt=""
+              class="event__btn--balance"
+            />
+
+            <img src="src/img/groups.png" alt="" class="event__btn--groups" />
+
+            <img
+              src="src/img/gotoTop.png"
+              alt=""
+              class="event__btn--gotoTop"
+              data-image="event__btn--gotoTop"
+            />
+          </div>
+        </div>
+
+        <form class="event-form">
+          <div class="event-form__row--spend">
+            <input
+              inputmode="numeric"
+              class="event-form__input--spend"
+              placeholder="0"
+              autofocus
+              required
+              maxlength="5"
+            />
+          </div>
+
+          <div class="event-form__row--date">
+            <label class="event-form__label--date" for="name">日期</label>
+            <input
+              class="event-form__input--date"
+              type="date"
+              value=""
+              required
+            />
+          </div>
+
+          <div class="event-form__row--type">
+            <label class="event-form__label--type">類別</label>
+            <select class="event-form__input--type">
+              <option value="食物" selected>食物</option>
+              <option value="住宿">住宿</option>
+              <option value="飲料">飲料</option>
+              <option value="購物">購物</option>
+              <option value="交通">交通</option>
+              <option value="票券">票券</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+
+          <div class="event-form__row--name">
+            <label class="event-form__label--name" for="name">名稱</label>
+            <input
+              id="name"
+              class="event-form__input--name"
+              required
+              type="text"
+              maxlength="5"
+              placeholder="商品名稱"
+            />
+          </div>
+
+          <div class="event-form__row--note">
+            <label for="note" class="event-form__label--note">備註</label>
+            <input
+              id="note"
+              class="event-form__input--note"
+              type="text"
+              maxlength="10"
+            />
+          </div>
+
+          <div class="event-form__row--payer">
+            <label class="event-form__label--payer">付款人</label>
+            <select name="pets" class="event-form__input--payer"></select>
+          </div>
+
+          <div class="event-form__row--sharer">
+            <label class="event-form__label--sharer">分款人</label>
+            <div class="event-form__input--sharers"></div>
+          </div>
+
+          <input class="event-form__btn--submit" type="submit" value="送出" />
+        </form>
+
+        <div class="event-list"></div>
+      </div>
+
+      <div class="balance">
+        <button class="balance__btn--close">x</button>
+
+        <div class="balance__content">
+          <label class="balance__content--title" for="">應收/應付帳款</label>
+          <div class="balance__infos"></div>
+        </div>
+        <div class="debt__content">
+          <label class="debt__content--title" for="">付款明細</label>
+          <div class="debt__infos"></div>
+        </div>
+      </div>
+
+      <div class="userMngt hidden">
+        <div class="userMngt__btn--close">x</div>
+
+        <div class="userMngt-header">
+          <div class="userMngt-header__title">成員管理</div>
+          <div class="userMngt-header__btn--createNewUser">新增成員</div>
+        </div>
+
+        <div class="user__infos"></div>
+
+        <form class="user-form hidden">
+          <!-- prettier-ignore -->
+          <input class="user-form__input--newUserName" maxlength="5" autocomplete="off" value="" placeholder="請輸入新使用者名稱"/>
+          <input class="user-form__btn--OK" type="submit" value="確認" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

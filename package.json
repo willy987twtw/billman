@@ -1,0 +1,19 @@
+{
+  "name": "moneyshare",
+  "version": "1.0.0",
+  "description": "",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "willy",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.1",
+    "node-sass": "^6.0.1"
+  },
+  "dependencies": {
+    "parcel": "^2.2.1"
+  }
+}
